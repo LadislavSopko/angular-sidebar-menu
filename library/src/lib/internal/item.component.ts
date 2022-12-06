@@ -134,7 +134,7 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   private emitItemActive(): void {
     if (this.menuItem.route) {
-      this.isActive.next(this.isActiveRoute(this.menuItem.route));
+      this.isActive.next(this.isActiveRoute(this.menuItem.route););
     }
   }
 

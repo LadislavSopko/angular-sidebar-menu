@@ -9,10 +9,10 @@ export type Role = string | number;
 
 @Injectable()
 export class RoleService {
-  private role$ = new BehaviorSubject<Role | undefined>(undefined);
+  private role$ = new BehaviorSubject<Role[] | undefined>(undefined);
   private unAuthorizedVisibility$ = new BehaviorSubject<UnAuthorizedVisibility>('hidden');
 
-  set role(role: Role | undefined) {
+  set role(role: Role[] | undefined) {
     this.role$.next(role);
   }
 
@@ -41,15 +41,22 @@ export class RoleService {
     ]).pipe(map((value) => ({ isAuthorized: value[0], unAuthorizedVisibility: value[1] })));
   }
 
-  private isRole(role?: Role): boolean {
-    return typeof role === 'string' || typeof role === 'number';
-  }
+  // private isRole(role?: Role[]): boolean {
+  //   return typeof role === 'string' || typeof role === 'number';
+  // }
 
-  private isAuthorized(userRole?: Role, itemRoles?: Role[]): boolean {
-    if (!this.isRole(userRole) || !itemRoles || itemRoles.length === 0) {
+  private isAuthorized(userRole?: Role[], itemRoles?: Role[]): boolean {
+    // console.log("userRole: ", userRole);
+    // console.log("itemRole: ", itemRoles);
+
+    if (!itemRoles || itemRoles.length === 0) {
       return true;
     }
 
-    return (itemRoles as Role[]).includes(userRole as Role);
+    if(userRole === undefined || userRole.length === 0 ){
+      return true;
+    }
+
+    return userRole?.some(r => itemRoles?.includes(r));
   }
 }

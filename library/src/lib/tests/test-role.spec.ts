@@ -64,7 +64,7 @@ describe('first level', () => {
   });
 
   it('should create menu items for author', async () => {
-    fixture.componentInstance.role = Roles.AUTHOR;
+    fixture.componentInstance.role = [Roles.AUTHOR];
     fixture.detectChanges();
 
     const items = await harness.getItems();
@@ -72,7 +72,7 @@ describe('first level', () => {
   });
 
   it('should create menu items for editor', async () => {
-    fixture.componentInstance.role = Roles.EDITOR;
+    fixture.componentInstance.role = [Roles.EDITOR];
     fixture.detectChanges();
 
     const items = await harness.getItems();
@@ -80,7 +80,7 @@ describe('first level', () => {
   });
 
   it('should create menu items and disable unauthorized items', async () => {
-    fixture.componentInstance.role = Roles.EDITOR;
+    fixture.componentInstance.role = [Roles.EDITOR];
     fixture.detectChanges();
 
     let items = await harness.getItems();
@@ -97,13 +97,13 @@ describe('first level', () => {
   });
 
   it('should switch hidden items on role change', async () => {
-    fixture.componentInstance.role = Roles.EDITOR;
+    fixture.componentInstance.role = [Roles.EDITOR];
     fixture.detectChanges();
 
     let items = await harness.getItems();
     expect(items.length).toEqual(4);
 
-    fixture.componentInstance.role = Roles.ADMIN;
+    fixture.componentInstance.role = [Roles.ADMIN];
     fixture.detectChanges();
 
     items = await harness.getItems();

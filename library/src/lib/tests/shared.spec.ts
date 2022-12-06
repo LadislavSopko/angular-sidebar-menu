@@ -33,7 +33,7 @@ export const routes: Route[] = [
 })
 export class WrapperStubComponent {
   menu?: Menu;
-  role?: Role;
+  role?: Role[];
   search?: string;
   unAuthorizedVisibility?: UnAuthorizedVisibility = 'hidden';
 }

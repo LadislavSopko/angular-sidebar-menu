@@ -43,7 +43,7 @@ export class SidebarMenuComponent {
   @Input() set toggleIconClasses(cssClasses: string) {
     this.nodeService.toggleIconClasses = cssClasses;
   }
-  @Input() set role(role: Role | undefined) {
+  @Input() set role(role: Role[] | undefined) {
     this.roleService.role = role;
   }
   @Input() set unAuthorizedVisibility(visibility: UnAuthorizedVisibility) {

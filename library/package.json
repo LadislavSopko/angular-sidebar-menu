@@ -1,6 +1,6 @@
 {
   "name": "angular-sidebar-menu",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.1",
   "homepage": "https://mledour.github.io/angular-sidebar-menu/branches/master/",
   "keywords": [
     "angular"
@@ -15,10 +15,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/animations": "~11.1.0",
-    "@angular/common": "~11.1.0",
-    "@angular/core": "~11.1.0",
-    "@angular/router": "~11.1.0"
+    "@angular/animations": "~12.2.0",
+    "@angular/common": "~12.2.0",
+    "@angular/core": "~12.2.0",
+    "@angular/router": "~12.2.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
